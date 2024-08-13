@@ -33,7 +33,7 @@ module.exports = (ctx) => {
         }
         const shardLinkConfig = shardLinkOptions(picId, host, apiKey)
         let shardLinkBody = await ctx.Request.request(shardLinkConfig)
-        imgList[i].imgUrl = host + '/api/asset/file/' + picId + '?isThumb=false&isWeb=true&key=' + shardLinkBody.key
+        imgList[i].imgUrl = host + '/api/assets/' + picId + '/thumbnail?size=preview&key=' + shardLinkBody.key
       }
     } catch (err) {
       ctx.log.info(err)
@@ -58,7 +58,7 @@ module.exports = (ctx) => {
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: host + '/api/asset/upload',
+      url: host + '/api/assets',
       headers: {
         'Content-Type': 'multipart/form-data',
         'Accept': 'application/json',
@@ -79,7 +79,7 @@ module.exports = (ctx) => {
     let config = {
       method: 'put',
       maxBodyLength: Infinity,
-      url: host + '/api/album/' + albumId + '/assets',
+      url: host + '/api/albums/' + albumId + '/assets',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
@@ -105,7 +105,7 @@ module.exports = (ctx) => {
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: host + '/api/shared-link',
+      url: host + '/api/shared-links',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
