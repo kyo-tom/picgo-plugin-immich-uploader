@@ -1,6 +1,6 @@
 {
   "name": "picgo-plugin-immich-uploader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "immich 图床",
   "main": "src/index.js",
   "publishConfig": {
